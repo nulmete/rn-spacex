@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const GET_LAUNCHES_QUERY = gql(`
-  query GetLaunches {
-    launches {
+  query GetLaunches($find: LaunchFind) {
+    launches(find: $find) {
       id
       mission_name
       rocket {

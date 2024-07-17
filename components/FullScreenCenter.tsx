@@ -1,8 +1,19 @@
 import { ReactNode } from "react";
-import { View, StyleSheet } from "react-native";
+import { StyleSheet, View, ViewProps } from "react-native";
 
-export const FullScreenCenter = ({ children }: { children: ReactNode }) => {
-  return <View style={styles.container}>{children}</View>;
+type FullScreenCenterProps = {
+  children: ReactNode;
+} & ViewProps;
+
+export const FullScreenCenter = ({
+  children,
+  ...props
+}: FullScreenCenterProps) => {
+  return (
+    <View {...props} style={[styles.container, props.style || {}]}>
+      {children}
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({

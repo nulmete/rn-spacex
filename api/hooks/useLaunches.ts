@@ -22,7 +22,16 @@ const adaptLaunches = (launches: APILaunch[]): Launch[] => {
 export const useLaunches = () => {
   const launchesQuery = useQuery<APILaunchListResponse>(GET_LAUNCHES_QUERY, {
     // TODO(BONUS): find by rocket_name
-    variables: {},
+    // Somehow this doesn't seem to work as I'd expect (it returns the whole list,
+    // even in the GQL playground). If this was working, what I'd probably do is
+    // add a search input just above the launches list with some debouncing behavior to
+    // prevent triggering too many requests (which could cause a rate limit exception)
+    // and performance issues.
+    // variables: {
+    //   find: {
+    //     rocket_name: "Falcon 9",
+    //   },
+    // },
   });
 
   const data = useMemo(() => {

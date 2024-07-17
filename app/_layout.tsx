@@ -12,6 +12,7 @@ SplashScreen.preventAutoHideAsync();
 
 // Initialize Apollo Client
 const client = new ApolloClient({
+  // TODO: would probably be part of the expo build secrets / .env variable
   uri: "https://spacex-production.up.railway.app/",
   cache: new InMemoryCache(),
 });

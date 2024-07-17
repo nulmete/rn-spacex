@@ -4,6 +4,7 @@ import {
   FullScreenCenter,
   LaunchDetailSection,
 } from "@/components";
+import { ErrorScreen } from "@/components/ErrorScreen";
 import { RocketDecoration } from "@/components/RocketDecoration";
 import * as Linking from "expo-linking";
 import { useLocalSearchParams } from "expo-router";
@@ -41,8 +42,9 @@ export default function LaunchDetails() {
     );
   }
 
-  // TODO error
-  // if (error) {}
+  if (error) {
+    return <ErrorScreen screenName="Launch Details" />;
+  }
 
   return (
     <ScrollView

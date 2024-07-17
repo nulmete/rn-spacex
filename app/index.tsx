@@ -1,5 +1,6 @@
 import { useLaunches } from "@/api/hooks/useLaunches";
 import { ActivityIndicator, FullScreenCenter } from "@/components";
+import { ErrorScreen } from "@/components/ErrorScreen";
 import { LaunchCard } from "@/components/launch";
 import { useRouter } from "expo-router";
 import { FlatList, Pressable, StyleSheet, View } from "react-native";
@@ -17,8 +18,9 @@ export default function Launches() {
     );
   }
 
-  // TODO error
-  // if (error) {}
+  if (error) {
+    return <ErrorScreen screenName="Launch List" />;
+  }
 
   const handleViewDetails = (id: string) => {
     router.navigate({ pathname: "[id]", params: { id } });
