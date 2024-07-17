@@ -4,6 +4,8 @@ React Native app that consumes the SpaceX [GraphQL API](https://studio.apollogra
 
 # Instructions to run the project locally
 
+## Install dependencies
+
 ```
 npm install
 ```
